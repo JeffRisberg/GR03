@@ -1,0 +1,20 @@
+fixture {
+	dimDistance(com.incra.Dimension, name: "Distance")
+	dimWeight(com.incra.Dimension, name: "Weight")
+	dimEnergy(com.incra.Dimension, name: "Energy")
+	dimVolume(com.incra.Dimension, name: "Volume")
+	dimLiqVol(com.incra.Dimension, name: "Liquid Volume")
+	
+	uomMT        (com.incra.UnitOfMeasure, id:  1, factor: 1.00,           dimension: dimWeight,   name: "metric ton", plural: "metric tons")
+	uomKg        (com.incra.UnitOfMeasure, id:  2, factor: 1.00,           dimension: dimWeight,   name: "kg",         plural: "kgs", base: true)
+	uomKWh       (com.incra.UnitOfMeasure, id:  3, factor: 1.00,           dimension: dimEnergy,   name: "kWh",        plural: "kWhs", base: true )
+	uomMWh       (com.incra.UnitOfMeasure, id:  4, factor: 1.00,           dimension: dimEnergy,   name: "mWh",        plural: "MWhs" )
+	uomTherm     (com.incra.UnitOfMeasure, id:  5, factor: 1.00,           dimension: dimEnergy,   name: "therm",      plural: "therms")
+	uomMeter     (com.incra.UnitOfMeasure, id:  6, factor: 1.00,           dimension: dimDistance, name: "meter",      plural: "meters", base: true)
+	uomKilometer (com.incra.UnitOfMeasure, id:  7, factor: 1.00,           dimension: dimDistance, name: "kilometer",  plural: "kilometers")
+	uomFoot      (com.incra.UnitOfMeasure, id:  8, factor: 0.56,           dimension: dimDistance, name: "foot",       plural: "feet")
+	uomMile      (com.incra.UnitOfMeasure, id:  9, factor: 0.0066,         dimension: dimDistance, name: "mile",       plural: "miles")
+	uomGal       (com.incra.UnitOfMeasure, id: 11, factor: 1.00,           dimension: dimLiqVol,   name: "gal",        plural: "gals", base: true)
+	uomKGal      (com.incra.UnitOfMeasure, id: 10, factor: 0.001,          dimension: dimLiqVol,   name: "kgal",       plural: "kgals")
+	uomHCF       (com.incra.UnitOfMeasure, id: 12, factor: 0.133680555556, dimension: dimLiqVol,   name: "HCF",        plural: "HCFs")
+}

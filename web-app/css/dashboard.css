@@ -1,0 +1,28 @@
+/* Special definitions for Dashboard
+ */
+
+.admin-small td 
+      { background: #009DDC; color: white; border: 15px solid white; }
+      
+.admin-small td a 
+      { margin: 10px; color: white !important; white-space: nowrap;
+      text-decoration: none !important; vertical-align: middle; 
+      padding: 30px 0px 10px 0px; font-size: 15px;}
+      
+.admin-small td a.visited 
+      { margin: 10px; color: white !important; white-space: nowrap; 
+      text-decoration: none !important; vertical-align: middle;
+      padding: 30px 0px 10px 0px; font-size: 15px }
+      
+.pageLeftTitle { float:left; font-size: 14px; font-weight: bold; }
+
+.pageRightTitle { float:right; font-size: 14px; font-weight: bold; }
+
+.dbPanel { width: 437px; height: 250px; padding: 6px 6px 6px 6px; float: left }
+
+.dbTitle { padding: 2px; font-size: 14px; font-family: sans-serif;
+        font-weight: bold; background: #009DDC; color: white; }
+        
+.dbSpacer { margin:5px; background: #6BC97D; height:8px; }
+
+.selected { color: #009DDC; }
