@@ -14,16 +14,16 @@ class Account extends AbstractDomain {
   String name
   String description
   Address address
-  boolean inBaseline = true
+  byte[] photo
   
   static constraints = {
     user(nullable: true)
-    name(blank: false, unique: true)
+    name(nullable: false)
     type()
     geoScale()
-    description(nullable: true)
+    description(maxSize: 500, nullable: true)
     address()
-    inBaseline(nullable: true)
+    photo(nullable: true, maxSize: 1000000)
     children(display: false)
     transactions(display: false)
     dateCreated(display: false)
@@ -32,20 +32,7 @@ class Account extends AbstractDomain {
   static transients = getTransients_Account();
   
   static protected def getTransients_Account() {
-    def result = [
-      'uoms',
-      'name',
-      'viveGoals',
-      'vitalMeasures',
-      'enabled',
-      'active',
-      'goalsSafely',
-      'remindersSafely',
-      'iconName',
-      'recentResults',
-      'activeMeasures',
-      'allMeasures',
-    ];
+    def result = [];
     result.addAll(getTransients_AbstractDomain());
     return result;
   }

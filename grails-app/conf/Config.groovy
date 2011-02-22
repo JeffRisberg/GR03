@@ -94,13 +94,11 @@ uiperformance.bundles = [
     name: 'jquery-and-ui',
     files: [
       'jquery-1.4.4.min',
-      'jquery-ui-1.8.6.custom.min'
     ]],
   [type: 'css',
     name: 'bundle',
     files: [
       'main',
-      'frontPage',
-      'start/jquery-ui-1.8.6.custom'
+      'dashboard',
     ]]
 ]
