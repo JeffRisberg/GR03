@@ -1,13 +1,12 @@
 package com.incra
 
-import com.google.code.facebookapi.Metric 
 import com.incra.domain.AbstractDomain 
 
 /** 
  * The <i>UserMetric</i> entity ...
  * 
  * @author Jeff Risberg
- * @since 02/17/11
+ * @since 11/19/10
  */
 class UserMetric extends AbstractDomain {
   
