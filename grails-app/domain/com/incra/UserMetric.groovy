@@ -19,7 +19,7 @@ class UserMetric extends AbstractDomain {
   
   static protected def getTransients_UserMetric() {
     def result = []
-    result.addAll(getTransients_DomainObjectAbsC())
+    result.addAll(getTransients_AbstractDomain())
     return result
   }
   

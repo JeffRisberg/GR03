@@ -1,5 +1,6 @@
 package com.incra
 
+import com.google.code.facebookapi.Metric 
 import com.incra.domain.AbstractDomain 
 import com.incra.domain.ChartType 
 
@@ -28,7 +29,7 @@ class UserDashboardPanel extends AbstractDomain {
   
   static protected def getTransients_UserDashboardPanel() {
     def result = []
-    result.addAll(getTransients_DomainObjectAbsC())
+    result.addAll(getTransients_AbstractDomain())
     return result
   }
   
