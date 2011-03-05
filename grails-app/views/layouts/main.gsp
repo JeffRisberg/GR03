@@ -1,9 +1,8 @@
 <html>
     <head>
     <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
-    <g:javascript library="jquery" plugin="jquery" />      
-    <p:css name="bundle" />   
-    <p:css name="start/jquery-ui-1.8.6.custom" />
+    <g:javascript library="jquery" plugin="jquery" />
+    <p:css name="bundle" />       
     <p:javascript src="jquery-and-ui" />
     <g:layoutHead />
     </head>
