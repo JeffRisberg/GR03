@@ -1,4 +1,5 @@
-package com.vivecoach
+package com.incra
+
 
 import org.hibernate.Query
 
