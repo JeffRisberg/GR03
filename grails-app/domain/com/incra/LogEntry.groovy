@@ -1,6 +1,8 @@
 package com.incra
 
-import java.sql.Timestamp 
+import java.sql.Timestamp
+
+import com.incra.domain.LogEntrySeverity
 
 /**
  * The <i>LogEntry</i> entity records the execution of a controller/action pair at a specific time.
@@ -16,42 +18,42 @@ import java.sql.Timestamp
  * @since 09/28/10
  */
 class LogEntry {
-  
-  User user
-  LogEntryKey key
-  LogEntrySeverity severity
-  String parameter1
-  String parameter2
-  String parameter3
-  String parameter4
-  String parameter5
-  String parameter6
-  String parameter7
-  String parameter8
-  String parameter9
-  String parameter10
-  Timestamp startTimestamp
-  Timestamp endTimestamp;
-  
-  static constraints = {
-    user(nullable: true)   
-    key()
-    severity()
-    parameter1(nullable: true)
-    parameter2(nullable: true)
-    parameter3(nullable: true)
-    parameter4(nullable: true)
-    parameter5(nullable: true)
-    parameter6(nullable: true)
-    parameter7(nullable: true)
-    parameter8(nullable: true)
-    parameter9(nullable: true)
-    parameter10(nullable: true)
-    startTimestamp(nullable: true)
-    endTimestamp(nullable: true)
-  }
-  
-  String toString() {
-    "User ${user.userId} ${key}"
-  }
+
+	User user
+	LogEntryKey key
+	LogEntrySeverity severity
+	String parameter1
+	String parameter2
+	String parameter3
+	String parameter4
+	String parameter5
+	String parameter6
+	String parameter7
+	String parameter8
+	String parameter9
+	String parameter10
+	Timestamp startTimestamp
+	Timestamp endTimestamp;
+
+	static constraints = {
+		user(nullable: true)
+		key()
+		severity()
+		parameter1(nullable: true)
+		parameter2(nullable: true)
+		parameter3(nullable: true)
+		parameter4(nullable: true)
+		parameter5(nullable: true)
+		parameter6(nullable: true)
+		parameter7(nullable: true)
+		parameter8(nullable: true)
+		parameter9(nullable: true)
+		parameter10(nullable: true)
+		startTimestamp(nullable: true)
+		endTimestamp(nullable: true)
+	}
+
+	String toString() {
+		"User ${user.userId} ${key}"
+	}
 }

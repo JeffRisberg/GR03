@@ -1,5 +1,6 @@
 package com.incra
 
+import com.incra.domain.AbstractDomain 
 import java.util.Date;
 
 /**
@@ -8,17 +9,15 @@ import java.util.Date;
  * @author Spoorthy, Jeff
  * @since 02/06/11
  */
-class ProductCategory {
-	
-	String name
-	String description
-	Date dateCreated
-	Date lastUpdated
-	
-	static constraints = {
-		name(blank: false, unique: true, maxSize: 50)	
-		description()
-	}
-	
-	static hasMany = [ products : ProductCategory ]
+class ProductCategory extends AbstractDomain {
+  
+  String name
+  String description
+  
+  static constraints = {
+    name(blank: false, unique: true, maxSize: 50)	
+    description()
+  }
+  
+  static hasMany = [ products : ProductCategory ]
 }

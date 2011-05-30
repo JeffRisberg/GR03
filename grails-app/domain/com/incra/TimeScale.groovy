@@ -7,12 +7,18 @@ package com.incra
  * @since 10/19/10
  */
 class TimeScale {
+	static final int TimeScale_Minute = 1;
+	static final int TimeScale_Hour = 2;
+	static final int TimeScale_Day = 3;
+	static final int TimeScale_WorkWeek = 4;
+	static final int TimeScale_Month = 5;
+	static final int TimeScale_Quarter = 6;
+	static final int TimeScale_Year = 7;
+	
 	String name
-	int scale
 	
 	static constraints = {
 		name(blank: false, unique: true)
-		scale()
 	}
 	
 	String toString() {

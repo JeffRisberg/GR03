@@ -1,6 +1,7 @@
 package com.incra
 
 
+
 /**
  * The <i>EntityType</i> entity is the main control record for a class of entities, and contains several
  * flags that are used to drive common code in the controllers and views.

@@ -1,8 +1,5 @@
-import com.incra.User
 import com.incra.Role
-
-import org.springframework.security.providers.UsernamePasswordAuthenticationToken as AuthToken
-import org.springframework.security.context.SecurityContextHolder as SCH
+import com.incra.User
 
 /**
  * Registration controller.
@@ -93,7 +90,7 @@ class RegisterController {
 
 		// if user want to change password. leave passwd field blank, passwd will not change.
 		if (params.passwd && params.passwd.length() > 0
-				&& params.repasswd && params.repasswd.length() > 0) {
+		&& params.repasswd && params.repasswd.length() > 0) {
 			if (params.passwd == params.repasswd) {
 				person.passwd = authenticateService.encodePassword(params.passwd)
 			}
@@ -120,13 +117,12 @@ class RegisterController {
 		else {
 			render view: 'edit', model: [person: person]
 		}
-	 }
+	}
 
 	/**
 	 * Person save action.
 	 */
 	def save = {
-
 		// skip if already logged in
 		if (authenticateService.isLoggedIn()) {
 			redirect action: show
@@ -182,18 +178,18 @@ class RegisterController {
 """
 
 				def email = [
-					to: [person.email], // 'to' expects a List, NOT a single email address
-					subject: "[${request.contextPath}] Account Signed Up",
-					text: emailContent // 'text' is the email body
-				]
+							to: [person.email], // 'to' expects a List, NOT a single email address
+							subject: "[${request.contextPath}] Account Signed Up",
+							text: emailContent // 'text' is the email body
+						]
 				emailerService.sendEmails([email])
 			}
 
 			person.save(flush: true)
 
-			def auth = new AuthToken(person.username, params.passwd)
-			def authtoken = daoAuthenticationProvider.authenticate(auth)
-			SCH.context.authentication = authtoken
+			//def auth = new AuthToken(person.username, params.passwd)
+			//def authtoken = daoAuthenticationProvider.authenticate(auth)
+			//SCH.context.authentication = authtoken
 			redirect uri: '/'
 		}
 		else {

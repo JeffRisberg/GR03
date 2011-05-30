@@ -124,6 +124,11 @@ class BootStrap {
           hasOwnership: false, hasGeography: true,
           supportsComments: true, supportsTags: true)
       entityType.save()
+      
+      entityType = new EntityType(name: "ContentItem", plural: "ContentItems",
+          hasOwnership: false, hasGeography: true,
+          supportsComments: true, supportsTags: true)
+      entityType.save()
     }
     else {
       println "Existing entity types, skipping creation."

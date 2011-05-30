@@ -7,14 +7,15 @@ package com.incra
  * @since 02/06/11
  */
 class ProductAttributeValue {
-	
-	ProductAttribute productAttribute
-	Integer value
-	
-	static constraints = {
-		productAttribute()
-		value()
-	}
-	
-	static belongsTo = [ product : Product ]
+  
+  ProductAttribute productAttribute
+  Integer value
+  
+  static constraints = {
+    productAttribute()
+    value()
+    product()
+  }
+  
+  static belongsTo = [ product : Product ]
 }

@@ -1,5 +1,6 @@
 package com.incra
 
+
 import java.util.Date;
 
 /**
@@ -22,5 +23,11 @@ class Tag {
 	
 	String toString() {
 		name;
+	}
+	
+	boolean equals(Object o) {
+		Tag tag = (Tag) o;
+		
+		return !(name != null ? !name.equals(tag.name) : tag.name != null);
 	}
 }

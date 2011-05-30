@@ -1,6 +1,6 @@
 package com.incra.controller
 
-import org.codehaus.groovy.grails.plugins.springsecurity.Secured
+import grails.plugins.springsecurity.Secured
 
 /**
  * The <i>SecureController</i> is an abstract controller class for operations

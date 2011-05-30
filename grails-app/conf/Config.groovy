@@ -71,7 +71,7 @@ log4j = {
   //appenders {
   //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
   //}
-  
+
   error  'org.codehaus.groovy.grails.web.servlet',  //  controllers
       'org.codehaus.groovy.grails.web.pages', //  GSP
       'org.codehaus.groovy.grails.web.sitemesh', //  layouts
@@ -83,9 +83,9 @@ log4j = {
       'org.springframework',
       'org.hibernate',
       'net.sf.ehcache.hibernate'
-  
+
   warn   'org.mortbay.log'
-  
+
   info   'grails.app'
 }
 
@@ -94,12 +94,12 @@ uiperformance.bundles = [
     name: 'bundle',
     files: [
       'main',
-      'start/jquery-ui-1.8.10.custom'
+      'start/jquery-ui-1.8.11.custom'
     ]],
   [type: 'js',
     name: 'jquery-and-ui',
     files: [
-      'jquery-1.4.4.min',
-      'jquery-ui-1.8.10.custom.min'
+      'jquery-1.5.2.min',
+      'jquery-ui-1.8.11.custom.min'
     ]],
 ]
