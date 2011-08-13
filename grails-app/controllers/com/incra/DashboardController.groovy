@@ -2,6 +2,8 @@ package com.incra
 
 import groovy.sql.Sql
 
+import com.incra.domain.ChartType
+
 /**
  * The <i>DashboardController</i> class collects information for the dashboard display.
  *
@@ -238,5 +240,78 @@ class DashboardController {
 
 		session.timeSegment = timeSegment
 		redirect(action: "index")
+	}
+
+	/**
+	 * Begin a session of updating the configuration for a user's panel.
+	 */
+	def configure = {
+		UserDashboardPanel userDashboardPanelInstance =
+				UserDashboardPanel.findByUserAndPanelIndex(loginUser, params.id)
+
+		if (userDashboardPanelInstance) {
+			List<Metric> metrics = Metric.findAll()
+			List<ChartType> chartTypes = ChartType.selectAll()
+
+			[user: loginUser, isAdmin: isAdmin, isCompanyAdmin: isCompanyAdmin,
+						metrics: metrics, chartTypes: chartTypes,
+						rangeTypes: activitySummaryService.CONST_RangeTypes,
+						userDashboardPanelInstance: userDashboardPanelInstance ]
+		}
+		else {
+			redirect action: index, params: params
+		}
+	}
+
+	/**
+	 * Complete a session of updating the configuration for a user's panel.
+	 */
+	def configureUpdate = {
+		UserDashboardPanel userDashboardPanelInstance = UserDashboardPanel.get( params.id )
+
+		if (userDashboardPanelInstance) {
+			if (params.version) {
+				def version = params.version.toLong()
+				if (userDashboardPanelInstance.version > version) {
+
+					userDashboardPanelInstance.errors.rejectValue("version", "userDashboardPanelInstance.optimistic.locking.failure", "Another user has updated this ActivityCategory while you were editing.")
+					List<Metric> metrics = Metric.findAll()
+					List<ChartType> chartTypes = ChartType.selectAll()
+
+					render(view:'configure', model:[user: loginUser, isAdmin: isAdmin, isCompanyAdmin: isCompanyAdmin,
+								metrics: metrics, chartTypes: chartTypes,
+								rangeTypes: activitySummaryService.CONST_RangeTypes,
+								userDashboardPanelInstance: userDashboardPanelInstance ])
+					return
+				}
+			}
+
+			def metricId = params.remove('metric')
+
+			if (metricId) {
+				userDashboardPanelInstance.viveMetric = ViveMetric.get(metricId as long)
+			} else {
+				userDashboardPanelInstance.viveMetric = null
+			}
+			userDashboardPanelInstance.properties = params
+
+			if (!userDashboardPanelInstance.hasErrors() && userDashboardPanelInstance.save()) {
+				analyticsService.calculateAll(loginUser)
+
+				redirect(action:index)
+			}
+			else {
+				List<Metric> metrics = Metric.findAll()
+				List<ChartType> chartTypes = ChartType.selectAll()
+
+				render(view:'configure', model:[user: loginUser, isAdmin: isAdmin, isCompanyAdmin: isCompanyAdmin,
+							metrics: metrics, chartTypes: chartTypes,
+							rangeTypes: activitySummaryService.CONST_RangeTypes,
+							userDashboardPanelInstance: userDashboardPanelInstance ])
+			}
+		}
+		else {
+			redirect(action:index)
+		}
 	}
 }
