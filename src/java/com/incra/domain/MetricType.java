@@ -15,13 +15,17 @@ public enum MetricType {
   /* */VALUE("Value"),
   /* */VALUE_AND_NAME("Value And Name");
 
-  public String label;
+  private String label;
 
   private MetricType(String label) {
     this.label = label;
 
     ObjectRepo.shared_objectList.add(this);
     ObjectRepo.shared_keyToObjectMap.put(this.name(), this);
+  }
+
+  public String getLabel() {
+    return label;
   }
 
   static public List<MetricType> selectAll() {

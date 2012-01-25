@@ -12,32 +12,41 @@ import java.util.Map;
  * @since 12/15/10
  */
 public enum ContentItemType {
-	/* */ORGANIZATION("Organization", "organization"),
-	/* */PRODUCT("Product", "product"),
-	/* */BOOK("Book", "book"),
-	/* */PROJECT("Project", "project");
+  /* */ORGANIZATION("Organization", "organization"),
+  /* */PRODUCT("Product", "product"),
+  /* */BOOK("Book", "book"),
+  /* */PROJECT("Project", "project"),
+  /* */NEWS("PartnerNews", "partnerNews");
 
-	public String label;
-	public String styleName;
+  private String label;
+  private String styleName;
 
-	private ContentItemType(String label, String styleName) {
-		this.label = label;
-		this.styleName = styleName;
+  private ContentItemType(String label, String styleName) {
+    this.label = label;
+    this.styleName = styleName;
 
-		ObjectRepo.shared_objectList.add(this);
-		ObjectRepo.shared_keyToObjectMap.put(this.name(), this);
-	}
+    ObjectRepo.shared_objectList.add(this);
+    ObjectRepo.shared_keyToObjectMap.put(this.name(), this);
+  }
 
-	static public List<ContentItemType> selectAll() {
-		return ObjectRepo.shared_objectList;
-	}
+  public String getLabel() {
+    return label;
+  }
 
-	static public ContentItemType findByKey(String key) {
-		return ObjectRepo.shared_keyToObjectMap.get(key);
-	}
+  public String getStyleName() {
+    return styleName;
+  }
 
-	static protected class ObjectRepo {
-		static protected Map<String, ContentItemType> shared_keyToObjectMap = new HashMap<String, ContentItemType>();
-		static protected List<ContentItemType> shared_objectList = new ArrayList<ContentItemType>();
-	}
+  static public List<ContentItemType> selectAll() {
+    return ObjectRepo.shared_objectList;
+  }
+
+  static public ContentItemType findByKey(String key) {
+    return ObjectRepo.shared_keyToObjectMap.get(key);
+  }
+
+  static protected class ObjectRepo {
+    static protected Map<String, ContentItemType> shared_keyToObjectMap = new HashMap<String, ContentItemType>();
+    static protected List<ContentItemType> shared_objectList = new ArrayList<ContentItemType>();
+  }
 }
